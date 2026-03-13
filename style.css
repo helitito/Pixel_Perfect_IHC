@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    justify-content: center;   /* centraliza horizontalmente */
+    align-items: center;       /* centraliza verticalmente */
+    height: 100vh;
+    margin: 0;
+    background: #eceff1;       /* cor de fundo da página */
+}
+
+.app-container {
+    width: 390px;
+    height: 844px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+
+    /* plano de fundo */
+    background-image: url('background/background.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.app {
+    flex: 1; /* ocupa toda a altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* separa topo e base */
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.header {
+    text-align: center;
+}
+
+.temp {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.condition {
+    font-size: 20px;
+}
+
+.bottom-button {
+    display: flex;
+    justify-content: center;   /* centraliza horizontalmente */
+    margin-bottom: 20px;       /* espaço da borda inferior */
+    width: 100%;
+}
+
+.btn-round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;               /* largura do botão */
+    height: 60px;              /* altura do botão */
+    background: #5936B4;       /* cor de fundo */
+    color: #fff;               /* cor do ícone + */
+    font-size: 32px;           /* tamanho do ícone + */
+    font-weight: bold;
+    border-radius: 50%;        /* deixa redondo */
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.btn-round:hover {
+    background: #00f2fe;
+    color: #fff;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Cidade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+    <div class="app pesquisa">
+        <header class="header">
+            <h1>Pesquisar Cidade</h1>
+        </header>
+
+        <section class="search-section">
+            <input type="text" id="cityInput" placeholder="Digite a cidade...">
+            <button onclick="searchCity()">Buscar</button>
+        </section>
+    </div>
+</div>
+
+<script>
+    const apiKey = "e07b2a642655765b6deccd48f346b0fc";
+
+    async function searchCity() {
+        const city = document.getElementById("cityInput").value;
+        if (!city) {
+            alert("Digite uma cidade!");
+            return;
+        }
+
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=pt_br`;
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.cod === "404") {
+            alert("Cidade não encontrada!");
+        } else {
+            alert(`Clima em ${data.name}: ${Math.round(data.main.temp)}°C, ${data.weather[0].description}`);
+        }
+    }
+</script>
+</body>
+</html>

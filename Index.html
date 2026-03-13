@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+    <div class="app">
+        <header class="header">
+            <h1>Weather App</h1>
+
+        </header>
+
+        <section class="current-weather">
+            <h2 id="cityName">Maceió</h2>
+            <div class="temp" id="temperature">--°C</div>
+            <div class="condition" id="condition">--</div>
+        </section>
+        <div class="bottom-button">
+            <a href="pesquisa.html" class="btn-round">+</a>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const apiKey = "e07b2a642655765b6deccd48f346b0fc";
+
+    async function getWeather() {
+        const city = document.getElementById("cityInput").value || "Maceió";
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=pt_br`;
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        document.getElementById("cityName").innerText = data.name;
+        document.getElementById("temperature").innerText = Math.round(data.main.temp) + "°C";
+        document.getElementById("condition").innerText = data.weather[0].description;
+    }
+
+    window.onload = getWeather;
+</script>
+</body>
+</html>
